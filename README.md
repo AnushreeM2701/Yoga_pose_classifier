@@ -1,81 +1,121 @@
 
-# Yoga Pose Classification using MobileNetV2
+# 🧘‍♀️ Yoga Pose Classifier
 
-This project classifies 5 different yoga poses using a deep learning model based on the MobileNetV2 architecture.
+A deep learning project to classify five yoga poses using TensorFlow and MobileNetV2, with real-time webcam prediction and a clean Flask-based frontend.
 
-## 🧘‍♀️ Yoga Pose Classes
-1. Down Dog
-2. Goddess
-3. Plank
-4. Tree
-5. Warrior
+---
 
-## 📁 Dataset Structure
+## 📁 Project Structure
 
 ```
-DATASET/
-├── TRAIN/
-│   ├── down_dog/
-│   ├── goddess/
-│   ├── plank/
-│   ├── tree/
-│   └── warrior/
-├── TEST/
-    ├── down_dog/
-    ├── goddess/
-    ├── plank/
-    ├── tree/
-    └── warrior/
+yoga_pose_classifier/
+│
+├── app.py                   # Flask backend
+├── scripts/
+│   ├── train_model.py       # Train the MobileNetV2 model
+│   └── predict.py           # Predict from image
+│
+├── models/
+│   └── yoga_pose_model.keras   # Trained model
+│
+├── templates/
+│   ├── index.html           # Upload and predict page
+│   └── webcam.html          # Real-time webcam prediction
+│
+├── static/
+│   └── style.css            # Optional CSS
+│
+├── notebooks/
+│   └── Yoga.ipynb           # Jupyter Notebook
+│
+├── dataset/
+│   ├── TRAIN/               # Training images (5 classes)
+│   └── TEST/                # Testing images (5 classes)
+│
+├── .gitignore
+├── requirements.txt         # Python dependencies
+└── README.md
 ```
 
-## 🧠 Model
+---
 
-- Architecture: MobileNetV2 (Transfer Learning)
-- Format: `.keras`
-- Loss: Categorical Crossentropy
-- Optimizer: Adam
-- Metrics: Accuracy
+## ✅ Features
 
-## 🧪 Evaluation
+- 🔍 Classifies 5 yoga poses:
+  - `downdog`, `goddess`, `plank`, `tree`, `warrior2`
+- 🧠 Uses transfer learning with MobileNetV2
+- 🎯 95%+ accuracy on validation set
+- 🖼 Upload image to predict pose
+- 🎥 Real-time webcam capture and prediction (with 5 sec delay)
 
-The model was evaluated using a confusion matrix and test accuracy.
+---
 
-## 🔧 Requirements
+## ⚙️ Setup Instructions
 
-Install dependencies:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/yoga-pose-classifier.git
+cd yoga-pose-classifier
+```
+
+### 2. Create a virtual environment
+
+```bash
+python3.10 -m venv venv
+source venv/bin/activate  # Mac/Linux
+```
+
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🚀 How to Use
-
-1. Clone the repository:
+### 4. Train the model (optional)
 
 ```bash
-git clone https://github.com/your-username/yoga-pose-classification.git
-cd yoga-pose-classification
+python scripts/train_model.py
 ```
 
-2. Run the training/testing scripts in a Jupyter notebook or Python script.
+### 5. Run the app
 
-3. Load the model:
-```python
-from keras.models import load_model
-model = load_model("yoga_model.keras")
+```bash
+python app.py
 ```
 
-## 📊 Visualizations
+Then visit:  
+🌐 `http://localhost:5000` – Home Page  
+🌐 `http://localhost:5000/webcam` – Webcam Prediction
 
-Confusion matrix and class-wise accuracy are available in the notebook.
+---
 
-## 📦 Model Checkpoint
+## 💻 Frontend
 
-- `yoga_model.keras` — Final saved model.
+- `index.html` – Upload image & see predicted pose
+- `webcam.html` – Real-time webcam capture (auto capture after 5 sec)
 
-## 🛠️ Tools Used
+---
 
-- TensorFlow / Keras
-- Scikit-learn
-- Matplotlib
-- Jupyter
+## 📦 Requirements
+
+- Python 3.10
+- TensorFlow 2.19.0
+- Flask
+- Pillow
+- OpenCV (cv2)
+
+Install via:
+
+```bash
+pip install tensorflow flask pillow opencv-python
+```
+
+---
+
+## 🙋‍♀️ Created By
+
+**Anushree M**  
+Aspiring Software Developer | Data Science Enthusiast
+
+---
